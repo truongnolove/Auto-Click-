@@ -1,4 +1,4 @@
-﻿
+
 namespace AutoClick
 {
     partial class Form1
