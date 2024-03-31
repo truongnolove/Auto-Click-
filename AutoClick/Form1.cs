@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +23,7 @@ namespace AutoClick
 
         [DllImport("user32.dll")]
         public static extern short GetKeyState(int nVirtKey);
-        public static int KEY_DOWN(int vKey)
-        {
-            return (GetKeyState(vKey) & 0x8000) != 0 ? 1 : 0;
-        }
-
+      
         // Các hằng số cho các loại sự kiện chuột
         const int MOUSEEVENTF_LEFTDOWN = 0x0002;
         const int MOUSEEVENTF_LEFTUP = 0x0004;
@@ -109,7 +105,7 @@ namespace AutoClick
                if (checkBox1.Checked)
                    PressEnter();
                label1.Text = $"Số Lượng Đã Click : {Count}";
-               Thread.Sleep(dateTimePicker1.Value.Second * 2);
+               Thread.Sleep(dateTimePicker1.Value.Second * 10);
            }
         }
 
@@ -133,6 +129,10 @@ namespace AutoClick
             }
             else
                 Environment.Exit(1);
+        }
+        public static int KEY_DOWN(int vKey)
+        {
+            return (GetKeyState(vKey) & 0x8000) != 0 ? 1 : 0;
         }
     }
 }
